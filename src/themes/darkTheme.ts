@@ -5,16 +5,19 @@ export const darkTheme = createTheme({
     mode: "dark",
     primary: {
       main: "#ff6c2f",
+      100: "#fae9e3",
     },
     secondary: {
-      main: "#FFF0EA",
+      main: "#22282E",
+      100: "#eef2f7",
     },
     background: {
       default: "#22282E",
       paper: "#282F36",
     },
     text: {
-      primary: "#fff",
+      primary: "#aab8c5",
+      secondary: "#ffffff",
     },
     grey: {
       500: "#2C343D",
@@ -33,6 +36,9 @@ export const darkTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Segoe UI, sans-serif",
+    allVariants: {
+      color: "#aab8c5",
+    },
   },
 });

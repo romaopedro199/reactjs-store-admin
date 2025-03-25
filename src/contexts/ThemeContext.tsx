@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { ThemeProvider } from "@mui/material/styles";
 import { RootState } from "@/redux/store";
-import { lightTheme } from "@/theme/lightTheme";
-import { darkTheme } from "@/theme/darkTheme";
+import { lightTheme } from "@/themes/lightTheme";
+import { darkTheme } from "@/themes/darkTheme";
 
 export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,

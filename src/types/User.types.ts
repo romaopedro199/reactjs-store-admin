@@ -4,12 +4,12 @@ export interface User {
   token: string;
 }
 
-export interface LoginCredentials {
-  username: string;
+export interface SignInCredentials {
+  email: string;
   password: string;
 }
 
 export interface SignupData {
-  username: string;
+  email: string;
   password: string;
 }
