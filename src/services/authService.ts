@@ -1,4 +1,4 @@
-import { SignInCredentials, SignupData, User } from "@/types/User.types";
+import { SignInCredentials, SignUpCredentials, User } from "@/types/User.types";
 import api from "@/services/api";
 
 export const login = async (credentials: SignInCredentials): Promise<User> => {
@@ -6,7 +6,7 @@ export const login = async (credentials: SignInCredentials): Promise<User> => {
   return response.data;
 };
 
-export const signup = async (userData: SignupData): Promise<User> => {
+export const signup = async (userData: SignUpCredentials): Promise<User> => {
   const response = await api.post<User>("/signup", userData);
   return response.data;
 };

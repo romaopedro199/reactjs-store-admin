@@ -9,7 +9,8 @@ export interface SignInCredentials {
   password: string;
 }
 
-export interface SignupData {
+export interface SignUpCredentials {
+  name: string;
   email: string;
   password: string;
 }

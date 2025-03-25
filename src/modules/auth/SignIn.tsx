@@ -11,6 +11,14 @@ const SignIn = () => {
 
   return (
     <AuthLayout>
+      <Stack gap={2} pt={2} pb={5}>
+        <Typography variant="h3" fontSize={24} fontWeight={600}>
+          Sign In
+        </Typography>
+        <Typography component="p" fontSize={14}>
+          Enter your email address and password to access admin panel.
+        </Typography>
+      </Stack>
       <Box
         component="form"
         onSubmit={handleSubmit(signIn)}
@@ -67,9 +75,9 @@ const SignIn = () => {
           alignItems="center"
           mt={3}
         >
-          Don't have an account?{" "}
+          Don't have an account?
           <Typography
-            component="p"
+            component="span"
             ml={0.5}
             sx={{
               a: {
@@ -80,7 +88,7 @@ const SignIn = () => {
               },
             }}
           >
-            <Link to="/signup">Sign up</Link>
+            <Link to="/signup">Sign Up</Link>
           </Typography>
         </Typography>
       </Box>

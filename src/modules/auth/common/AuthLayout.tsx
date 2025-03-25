@@ -1,5 +1,5 @@
 import Logo from "@/modules/core/components/Logo";
-import { Box, Grid2, Stack, SxProps, Typography } from "@mui/material";
+import { Box, Grid2, Stack, SxProps } from "@mui/material";
 import { ReactNode } from "react";
 
 const imageSx: SxProps = {
@@ -19,14 +19,12 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
       <Grid2 container>
         <Grid2 size={{ xs: 12, md: 7 }}>
           <Stack justifyContent="center" alignItems="center" minHeight="100vh">
-            <Stack gap={2} py={{ xs: 4, md: 10 }} px={2}>
+            <Stack
+              py={{ xs: 4, md: 10 }}
+              px={2}
+              width={{ xs: "auto", md: "390px" }}
+            >
               <Logo />
-              <Typography variant="h3" fontSize={24} fontWeight={600} mt={1}>
-                Sign In
-              </Typography>
-              <Typography component="p" fontSize={14}>
-                Enter your email address and password to access admin panel.
-              </Typography>
               <Stack pt={2}>{children}</Stack>
             </Stack>
           </Stack>
