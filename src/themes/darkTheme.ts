@@ -8,7 +8,7 @@ export const darkTheme = createTheme({
       100: "#fae9e3",
     },
     secondary: {
-      main: "#22282E",
+      main: "#262d34",
       100: "#eef2f7",
     },
     background: {
@@ -18,6 +18,7 @@ export const darkTheme = createTheme({
     text: {
       primary: "#aab8c5",
       secondary: "#ffffff",
+      disabled: "#9097a7",
     },
     grey: {
       500: "#2C343D",
