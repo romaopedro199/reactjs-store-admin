@@ -1,12 +1,17 @@
 import { Box, Stack } from "@mui/material";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import Sidebar from "@/modules/core/components/layout/Sidebar";
+import Header from "@/modules/core/components/layout/Header";
 
 type AppLayoutProps = {
   children: ReactNode;
 };
 
 const AppLayout = ({ children }: AppLayoutProps) => {
+  const [openSidebar, setOpenSidebar] = useState(true);
+
+  const handleToggleSidebar = () => setOpenSidebar(!openSidebar);
+
   return (
     <Stack
       bgcolor="background.default"
@@ -14,9 +19,11 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       flexDirection="row"
       width="100%"
     >
-      <Sidebar />
-      <Box minHeight="100vh" width="100%" sx={{ overflowY: "auto" }}>
-        <Box px={3}>{children}</Box>
+      <Sidebar open={openSidebar} />
+      <Box width="100%" px={5}>
+        <Header onToggle={handleToggleSidebar} />
+
+        <Box>{children}</Box>
       </Box>
     </Stack>
   );

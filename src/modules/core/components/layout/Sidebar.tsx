@@ -1,10 +1,7 @@
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
 import { styled, Theme, CSSObject } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-import IconButton from "@mui/material/IconButton";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -15,6 +12,18 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
+import DescriptionIcon from "@mui/icons-material/Description";
+import CreditCardIcon from "@mui/icons-material/CreditCard";
+import PersonPinIcon from "@mui/icons-material/PersonPin";
+import BadgeIcon from "@mui/icons-material/Badge";
+import TopicIcon from "@mui/icons-material/Topic";
+import ContactsIcon from "@mui/icons-material/Contacts";
+import WorkIcon from "@mui/icons-material/Work";
+import SubtitlesIcon from "@mui/icons-material/Subtitles";
+import AutoGraphIcon from "@mui/icons-material/AutoGraph";
+import MessageIcon from "@mui/icons-material/Message";
+import MarkunreadIcon from "@mui/icons-material/Markunread";
+import SosIcon from "@mui/icons-material/Sos";
 import Logo from "@/modules/core/components/Logo";
 
 interface MenuItem {
@@ -63,7 +72,8 @@ const Drawer = styled(MuiDrawer, {
 const StyledDrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
-  padding: theme.spacing(3, 1),
+  padding: theme.spacing(3, 0.5),
+  justifyContent: "space-between",
   ...theme.mixins.toolbar,
 }));
 
@@ -79,9 +89,9 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, open, isActive }) => {
       key={item.slug}
       disablePadding
       sx={{
-        opacity: isActive ? 1 : 0.5,
         display: "block",
-        borderLeft: `3px solid ${isActive ? "primary.main" : "transparent"}`,
+        borderLeft: "3px solid",
+        borderLeftColor: isActive ? "primary.main" : "transparent",
         ".MuiListItemText-primary": {
           color: isActive ? "text.secondary" : "text.disabled",
           transition: "all .15s ease-in-out",
@@ -124,9 +134,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, open, isActive }) => {
   );
 };
 
-const Sidebar = () => {
-  const [open, setOpen] = useState(false);
+interface SidebarProps {
+  open: boolean;
+}
 
+const Sidebar = ({ open }: SidebarProps) => {
   const menuList: MenuItem[] = useMemo(
     () => [
       { label: "Dashboard", slug: "dashboard", icon: <DashboardIcon /> },
@@ -134,30 +146,45 @@ const Sidebar = () => {
       { label: "Category", slug: "category", icon: <BallotIcon /> },
       { label: "Inventory", slug: "inventory", icon: <InventoryIcon /> },
       { label: "Orders", slug: "orders", icon: <ShoppingBagIcon /> },
+      { label: "Purchases", slug: "purchases", icon: <CreditCardIcon /> },
+      { label: "Invoices", slug: "invoices", icon: <DescriptionIcon /> },
+      { label: "Profile", slug: "profile", icon: <PersonPinIcon /> },
+      { label: "Roles", slug: "roles", icon: <BadgeIcon /> },
+      { label: "Permissions", slug: "permissions", icon: <TopicIcon /> },
+      { label: "Customers", slug: "customers", icon: <ContactsIcon /> },
+      { label: "Sellers", slug: "sellers", icon: <WorkIcon /> },
+      { label: "Coupons", slug: "coupons", icon: <SubtitlesIcon /> },
+      { label: "Reviews", slug: "reviews", icon: <AutoGraphIcon /> },
+      { label: "Chat", slug: "chat", icon: <MessageIcon /> },
+      { label: "Email", slug: "email", icon: <MarkunreadIcon /> },
+      { label: "Help Center", slug: "help-center", icon: <SosIcon /> },
       { label: "Settings", slug: "settings", icon: <SettingsSuggestIcon /> },
     ],
     []
   );
 
-  const handleToggleDrawer = () => {
-    setOpen(!open);
-  };
-
   return (
     <Drawer variant="permanent" open={open}>
-      <StyledDrawerHeader
-        sx={{ justifyContent: open ? "space-between" : "flex-end" }}
-      >
-        {open && <Logo height={35} variant="light" />}
-        <IconButton
-          onClick={handleToggleDrawer}
-          sx={{ svg: { color: "text.disabled" } }}
-        >
-          {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-        </IconButton>
+      <StyledDrawerHeader>
+        <Logo height={35} variant="light" compact={!open} />
       </StyledDrawerHeader>
 
-      <List>
+      <List
+        sx={{
+          overflowY: "auto",
+          overflowX: "hidden",
+          "&::-webkit-scrollbar": {
+            width: 4,
+          },
+          "&::-webkit-scrollbar-track": {
+            background: "secondary.main",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "text.disabled",
+            borderRadius: 2,
+          },
+        }}
+      >
         {menuList.map((item) => (
           <SidebarItem
             key={item.slug}
