@@ -4,7 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import { AppBar, SxProps } from "@mui/material";
 
-interface HeaderProps {
+interface AppHeaderProps {
   onToggle: () => void;
 }
 
@@ -19,7 +19,7 @@ const appbarSx: SxProps = {
 
 const iconButtonSx: SxProps = { mr: 2, svg: { color: "text.disabled" } };
 
-const Header = ({ onToggle }: HeaderProps) => {
+const AppHeader = ({ onToggle }: AppHeaderProps) => {
   return (
     <AppBar position="relative" sx={appbarSx}>
       <Toolbar>
@@ -39,4 +39,4 @@ const Header = ({ onToggle }: HeaderProps) => {
   );
 };
 
-export default Header;
+export default AppHeader;

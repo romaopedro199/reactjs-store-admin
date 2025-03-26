@@ -77,13 +77,17 @@ const StyledDrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-interface SidebarItemProps {
+interface AppSidebarItemProps {
   item: MenuItem;
   open: boolean;
   isActive: boolean;
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ item, open, isActive }) => {
+const AppSidebarItem: React.FC<AppSidebarItemProps> = ({
+  item,
+  open,
+  isActive,
+}) => {
   return (
     <ListItem
       key={item.slug}
@@ -134,11 +138,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, open, isActive }) => {
   );
 };
 
-interface SidebarProps {
+interface AppSidebarProps {
   open: boolean;
 }
 
-const Sidebar = ({ open }: SidebarProps) => {
+const AppSidebar = ({ open }: AppSidebarProps) => {
   const menuList: MenuItem[] = useMemo(
     () => [
       { label: "Dashboard", slug: "dashboard", icon: <DashboardIcon /> },
@@ -186,7 +190,7 @@ const Sidebar = ({ open }: SidebarProps) => {
         }}
       >
         {menuList.map((item) => (
-          <SidebarItem
+          <AppSidebarItem
             key={item.slug}
             item={item}
             open={open}
@@ -198,4 +202,4 @@ const Sidebar = ({ open }: SidebarProps) => {
   );
 };
 
-export default Sidebar;
+export default AppSidebar;
