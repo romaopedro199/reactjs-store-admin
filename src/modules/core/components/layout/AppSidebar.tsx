@@ -1,11 +1,13 @@
 import React, { useMemo } from "react";
 import { styled, Theme, CSSObject } from "@mui/material/styles";
-import MuiDrawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
+import {
+  Drawer as MuiDrawer,
+  ListItem,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import BallotIcon from "@mui/icons-material/Ballot";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 import DashboardIcon from "@mui/icons-material/Dashboard";

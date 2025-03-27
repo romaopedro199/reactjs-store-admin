@@ -2,8 +2,8 @@ import AuthLayout from "@/modules/auth/common/AuthLayout";
 import { Controller } from "react-hook-form";
 import { Box, InputLabel, Stack, Typography } from "@mui/material";
 import useSignIn from "@/hooks/useSignIn";
-import ButtonHover from "../core/components/ButtonHover";
-import Input from "../core/components/form/Input";
+import ButtonHover from "@/modules/core/components/ButtonHover";
+import Input from "@/modules/core/components/form/Input";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
