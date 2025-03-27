@@ -27,6 +27,7 @@ import MessageIcon from "@mui/icons-material/Message";
 import MarkunreadIcon from "@mui/icons-material/Markunread";
 import SosIcon from "@mui/icons-material/Sos";
 import Logo from "@/modules/core/components/Logo";
+import { useDevice } from "@/hooks/useDevice";
 
 interface MenuItem {
   label: string;
@@ -145,6 +146,8 @@ interface AppSidebarProps {
 }
 
 const AppSidebar = ({ open }: AppSidebarProps) => {
+  const { downMd } = useDevice();
+
   const menuList: MenuItem[] = useMemo(
     () => [
       { label: "Dashboard", slug: "dashboard", icon: <DashboardIcon /> },
@@ -168,6 +171,8 @@ const AppSidebar = ({ open }: AppSidebarProps) => {
     ],
     []
   );
+
+  if (downMd) return null;
 
   return (
     <Drawer variant="permanent" open={open}>

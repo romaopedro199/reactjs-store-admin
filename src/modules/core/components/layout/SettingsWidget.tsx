@@ -7,7 +7,7 @@ interface SettingsWidgetProps {
 
 const SettingsWidget = ({ sx }: SettingsWidgetProps) => {
   return (
-    <IconButton color="inherit" edge="start" sx={sx}>
+    <IconButton color="inherit" sx={sx}>
       <SettingsIcon />
     </IconButton>
   );

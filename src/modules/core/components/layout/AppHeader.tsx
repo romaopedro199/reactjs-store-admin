@@ -10,6 +10,7 @@ import {
 import ToggleThemeMode from "@/modules/core/components/layout/ToggleThemeMode";
 import NotificationsWidget from "@/modules/core/components/layout/NotificationsWidget";
 import SettingsWidget from "@/modules/core/components/layout/SettingsWidget";
+import { useDevice } from "@/hooks/useDevice";
 
 interface AppHeaderProps {
   onToggle: () => void;
@@ -47,6 +48,8 @@ const iconButtonSx: SxProps = {
 };
 
 const AppHeader = ({ onToggle }: AppHeaderProps) => {
+  const { upLg } = useDevice();
+
   return (
     <AppBar position="relative" sx={appbarSx}>
       <Toolbar sx={toolbarSx}>
@@ -54,14 +57,20 @@ const AppHeader = ({ onToggle }: AppHeaderProps) => {
           <IconButton
             color="inherit"
             onClick={onToggle}
-            edge="start"
             sx={{ ...iconButtonSx, mr: 2 }}
           >
             <MenuOpenIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" color="text.disabled">
-            WELCOME!
-          </Typography>
+          {upLg && (
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              color="text.disabled"
+            >
+              WELCOME!
+            </Typography>
+          )}
         </Box>
 
         <Box sx={flexDivSx}>

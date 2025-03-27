@@ -15,7 +15,7 @@ const ToggleThemeMode = ({ sx }: ToggleThemeModeProps) => {
   const isDarkMode = useMemo(() => themeMode === "dark", [themeMode]);
 
   return (
-    <IconButton color="inherit" onClick={toggleThemeMode} edge="start" sx={sx}>
+    <IconButton color="inherit" onClick={toggleThemeMode} sx={sx}>
       {isDarkMode ? <LightModeIcon /> : <BedtimeIcon />}
     </IconButton>
   );

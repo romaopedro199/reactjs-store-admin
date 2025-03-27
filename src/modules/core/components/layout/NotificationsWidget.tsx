@@ -7,7 +7,7 @@ interface NotificationsWidgetProps {
 
 const NotificationsWidget = ({ sx }: NotificationsWidgetProps) => {
   return (
-    <IconButton color="inherit" edge="start" sx={sx}>
+    <IconButton color="inherit" sx={sx}>
       <NotificationsIcon />
     </IconButton>
   );
