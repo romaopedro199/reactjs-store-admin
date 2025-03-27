@@ -11,6 +11,7 @@ interface ToggleThemeModeProps {
 
 const ToggleThemeMode = ({ sx }: ToggleThemeModeProps) => {
   const { themeMode, toggleThemeMode } = useTheme();
+  console.log(themeMode);
 
   const isDarkMode = useMemo(() => themeMode === "dark", [themeMode]);
 

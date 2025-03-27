@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PaletteMode } from "@mui/material";
+import { getThemeMode } from "@/utils/getThemeMode";
+import { THEME_MODE_STORAGE } from "@/constants/themeStorage";
 
 interface ThemeState {
   themeMode: PaletteMode;
 }
 
 const initialState: ThemeState = {
-  themeMode: "light",
+  themeMode: getThemeMode(),
 };
 
 const themeSlice = createSlice({
@@ -16,7 +18,7 @@ const themeSlice = createSlice({
     toggleThemeMode: (state) => {
       const newState = state.themeMode === "light" ? "dark" : "light";
       state.themeMode = newState;
-      console.log(newState);
+      localStorage.setItem(THEME_MODE_STORAGE, newState);
     },
   },
 });
