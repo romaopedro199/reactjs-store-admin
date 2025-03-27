@@ -1,12 +1,13 @@
 import React, { useMemo } from "react";
 import { styled, Theme, CSSObject } from "@mui/material/styles";
 import {
-  Drawer as MuiDrawer,
+  Drawer,
   ListItem,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  useTheme,
 } from "@mui/material";
 import BallotIcon from "@mui/icons-material/Ballot";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
@@ -57,20 +58,6 @@ const closedMixin = (theme: Theme): CSSObject => ({
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
 });
-
-const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  width: drawerWidth,
-  flexShrink: 0,
-  whiteSpace: "nowrap",
-  boxSizing: "border-box",
-  ...(open ? openedMixin(theme) : closedMixin(theme)),
-  "& .MuiDrawer-paper": {
-    ...(open ? openedMixin(theme) : closedMixin(theme)),
-    backgroundColor: theme.palette.secondary.main,
-  },
-}));
 
 const StyledDrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -143,10 +130,12 @@ const AppSidebarItem: React.FC<AppSidebarItemProps> = ({
 
 interface AppSidebarProps {
   open: boolean;
+  onToggle: () => void;
 }
 
-const AppSidebar = ({ open }: AppSidebarProps) => {
-  const { downMd } = useDevice();
+const AppSidebar = ({ open, onToggle }: AppSidebarProps) => {
+  const theme = useTheme();
+  const { upLg } = useDevice();
 
   const menuList: MenuItem[] = useMemo(
     () => [
@@ -172,10 +161,23 @@ const AppSidebar = ({ open }: AppSidebarProps) => {
     []
   );
 
-  if (downMd) return null;
-
   return (
-    <Drawer variant="permanent" open={open}>
+    <Drawer
+      variant={upLg ? "permanent" : "temporary"}
+      open={open}
+      onClose={onToggle}
+      sx={{
+        width: drawerWidth,
+        flexShrink: 0,
+        whiteSpace: "nowrap",
+        boxSizing: "border-box",
+        ...(open ? openedMixin(theme) : closedMixin(theme)),
+        "& .MuiDrawer-paper": {
+          ...(open ? openedMixin(theme) : closedMixin(theme)),
+          backgroundColor: theme.palette.secondary.main,
+        },
+      }}
+    >
       <StyledDrawerHeader>
         <Logo height={35} variant="light" compact={!open} />
       </StyledDrawerHeader>

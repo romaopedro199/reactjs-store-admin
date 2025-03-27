@@ -8,7 +8,7 @@ type AppLayoutProps = {
 };
 
 const AppLayout = ({ children }: AppLayoutProps) => {
-  const [openSidebar, setOpenSidebar] = useState(true);
+  const [openSidebar, setOpenSidebar] = useState(false);
 
   const handleToggleSidebar = () => setOpenSidebar(!openSidebar);
 
@@ -19,7 +19,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       flexDirection="row"
       width="100%"
     >
-      <AppSidebar open={openSidebar} />
+      <AppSidebar open={openSidebar} onToggle={handleToggleSidebar} />
       <Box width="100%" px={{ xs: 2, lg: 5 }}>
         <AppHeader onToggle={handleToggleSidebar} />
 
