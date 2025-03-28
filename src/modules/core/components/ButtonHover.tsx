@@ -8,6 +8,7 @@ type ButtonHoverProps = {
   onClick?: () => void;
   children: ReactNode;
   fullWidth?: boolean;
+  sx?: SxProps;
 };
 
 const ButtonHover = ({
@@ -17,6 +18,7 @@ const ButtonHover = ({
   onClick,
   children,
   fullWidth,
+  sx,
 }: ButtonHoverProps) => {
   const isSecondary = variant !== "primary";
 
@@ -43,6 +45,7 @@ const ButtonHover = ({
       bgcolor: !isSecondary ? "primary.main" : "secondary.main",
       color: "text.secondary",
     },
+    ...sx,
   };
 
   return (
