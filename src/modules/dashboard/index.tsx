@@ -3,8 +3,8 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-import DataCard from "@/modules/dashboard/components/DataCard";
-import PerformanceCard from "@/modules/dashboard/components/PerformanceCard";
+import DataCard from "@/modules/dashboard/components/data-card";
+import PerformanceCard from "@/modules/dashboard/components/performance-card";
 
 const DataCardContainer = () => {
   return (

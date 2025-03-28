@@ -1,7 +1,8 @@
 import { Button, SxProps } from "@mui/material";
 import { ReactNode } from "react";
+import { buttonHoverSx } from "@/modules/core/components/button-hover/styles";
 
-type ButtonHoverProps = {
+interface ButtonHoverProps {
   variant?: "primary" | "secondary";
   inverted?: boolean;
   type?: "submit" | "button";
@@ -9,7 +10,7 @@ type ButtonHoverProps = {
   children: ReactNode;
   fullWidth?: boolean;
   sx?: SxProps;
-};
+}
 
 const ButtonHover = ({
   variant = "primary",
@@ -22,7 +23,7 @@ const ButtonHover = ({
 }: ButtonHoverProps) => {
   const isSecondary = variant !== "primary";
 
-  const buttonSx: SxProps = {
+  const componentSx = buttonHoverSx({
     bgcolor: inverted
       ? "transparent"
       : !isSecondary
@@ -35,18 +36,9 @@ const ButtonHover = ({
       : "text.primary",
     border: inverted ? "1px solid" : "0",
     borderColor: !isSecondary ? "primary.100" : "secondary.100",
-    textTransform: "inherit",
-    fontWeight: "400",
-    fontSize: 14,
-    borderRadius: 3,
-    boxShadow: "none",
-    "&:hover": {
-      boxShadow: "none",
-      bgcolor: !isSecondary ? "primary.main" : "secondary.main",
-      color: "text.secondary",
-    },
-    ...sx,
-  };
+    bgcolorHover: !isSecondary ? "primary.main" : "secondary.main",
+    sx,
+  });
 
   return (
     <Button
@@ -54,7 +46,7 @@ const ButtonHover = ({
       fullWidth={fullWidth}
       variant="contained"
       onClick={onClick}
-      sx={buttonSx}
+      sx={componentSx.button}
     >
       {children}
     </Button>

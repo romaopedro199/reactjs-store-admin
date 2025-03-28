@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PublicRoute from "@/routes/PublicRoute";
-import PrivateRoute from "@/routes/PrivateRoute";
+import PublicRoute from "@/routes/public-route";
+import PrivateRoute from "@/routes/private-route";
 import { lazy, Suspense } from "react";
 
-const SignIn = lazy(() => import("@/modules/auth/SignIn"));
-const SignUp = lazy(() => import("@/modules/auth/SignUp"));
-const Dashboard = lazy(() => import("@/modules/dashboard/Dashboard"));
+const SignIn = lazy(() => import("@/modules/auth/sign-in"));
+const SignUp = lazy(() => import("@/modules/auth/sign-up"));
+const Dashboard = lazy(() => import("@/modules/dashboard"));
 
 const AppRoutes = () => {
   return (

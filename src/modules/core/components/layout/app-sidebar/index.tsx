@@ -1,5 +1,4 @@
 import React, { useMemo } from "react";
-import { styled, Theme, CSSObject } from "@mui/material/styles";
 import {
   Drawer,
   ListItem,
@@ -8,6 +7,7 @@ import {
   ListItemIcon,
   ListItemText,
   useTheme,
+  Box,
 } from "@mui/material";
 import BallotIcon from "@mui/icons-material/Ballot";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
@@ -27,45 +27,18 @@ import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 import MessageIcon from "@mui/icons-material/Message";
 import MarkunreadIcon from "@mui/icons-material/Markunread";
 import SosIcon from "@mui/icons-material/Sos";
-import Logo from "@/modules/core/components/Logo";
+import Logo from "@/modules/core/components/logo";
 import { useDevice } from "@/hooks/useDevice";
+import {
+  appSidebarListItemSx,
+  appSidebarSx,
+} from "@/modules/core/components/layout/app-sidebar/styles";
 
 interface MenuItem {
   label: string;
   slug: string;
   icon: React.ReactNode;
 }
-
-const drawerWidth = 240;
-
-const openedMixin = (theme: Theme): CSSObject => ({
-  width: drawerWidth,
-  transition: theme.transitions.create("width", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-  }),
-  overflowX: "hidden",
-});
-
-const closedMixin = (theme: Theme): CSSObject => ({
-  transition: theme.transitions.create("width", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  overflowX: "hidden",
-  width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.up("sm")]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
-  },
-});
-
-const StyledDrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  padding: theme.spacing(3, 0.5),
-  justifyContent: "space-between",
-  ...theme.mixins.toolbar,
-}));
 
 interface AppSidebarItemProps {
   item: MenuItem;
@@ -78,51 +51,19 @@ const AppSidebarItem: React.FC<AppSidebarItemProps> = ({
   open,
   isActive,
 }) => {
+  const componentSx = appSidebarListItemSx({
+    borderLeftColor: isActive ? "primary.main" : "transparent",
+    textColor: isActive ? "text.secondary" : "text.disabled",
+    svgColor: isActive ? "primary.main" : "text.disabled",
+    svgColorHover: isActive ? "primary.main" : "text.secondary",
+    open,
+  });
+
   return (
-    <ListItem
-      key={item.slug}
-      disablePadding
-      sx={{
-        display: "block",
-        borderLeft: "3px solid",
-        borderLeftColor: isActive ? "primary.main" : "transparent",
-        ".MuiListItemText-primary": {
-          color: isActive ? "text.secondary" : "text.disabled",
-          transition: "all .15s ease-in-out",
-          fontSize: 14,
-        },
-        svg: {
-          color: isActive ? "primary.main" : "text.disabled",
-          transition: "all .15s ease-in-out",
-          fontSize: 18,
-        },
-        "&:hover": {
-          ".MuiListItemText-primary": {
-            color: "text.secondary",
-          },
-          svg: {
-            color: isActive ? "primary.main" : "text.secondary",
-          },
-        },
-      }}
-    >
-      <ListItemButton
-        sx={{
-          minHeight: 48,
-          px: 2.5,
-          justifyContent: open ? "initial" : "center",
-        }}
-      >
-        <ListItemIcon
-          sx={{
-            minWidth: 0,
-            justifyContent: "center",
-            mr: open ? 1.5 : "auto",
-          }}
-        >
-          {item.icon}
-        </ListItemIcon>
-        <ListItemText primary={item.label} sx={{ opacity: open ? 1 : 0 }} />
+    <ListItem key={item.slug} disablePadding sx={componentSx.container}>
+      <ListItemButton sx={componentSx.button}>
+        <ListItemIcon sx={componentSx.buttonIcon}>{item.icon}</ListItemIcon>
+        <ListItemText primary={item.label} sx={componentSx.buttonText} />
       </ListItemButton>
     </ListItem>
   );
@@ -136,6 +77,11 @@ interface AppSidebarProps {
 const AppSidebar = ({ open, onToggle }: AppSidebarProps) => {
   const theme = useTheme();
   const { upLg } = useDevice();
+
+  const componentSx = appSidebarSx({
+    theme,
+    open,
+  });
 
   const menuList: MenuItem[] = useMemo(
     () => [
@@ -166,38 +112,13 @@ const AppSidebar = ({ open, onToggle }: AppSidebarProps) => {
       variant={upLg ? "permanent" : "temporary"}
       open={open}
       onClose={onToggle}
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        whiteSpace: "nowrap",
-        boxSizing: "border-box",
-        ...(open ? openedMixin(theme) : closedMixin(theme)),
-        "& .MuiDrawer-paper": {
-          ...(open ? openedMixin(theme) : closedMixin(theme)),
-          backgroundColor: theme.palette.secondary.main,
-        },
-      }}
+      sx={componentSx.container}
     >
-      <StyledDrawerHeader>
+      <Box sx={componentSx.header}>
         <Logo height={35} variant="light" compact={!open} />
-      </StyledDrawerHeader>
+      </Box>
 
-      <List
-        sx={{
-          overflowY: "auto",
-          overflowX: "hidden",
-          "&::-webkit-scrollbar": {
-            width: 4,
-          },
-          "&::-webkit-scrollbar-track": {
-            background: "secondary.main",
-          },
-          "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "text.disabled",
-            borderRadius: 2,
-          },
-        }}
-      >
+      <List sx={componentSx.list}>
         {menuList.map((item) => (
           <AppSidebarItem
             key={item.slug}

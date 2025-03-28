@@ -1,52 +1,8 @@
-import { Box, Button, SxProps, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { ReactNode } from "react";
-
-const dataCardSx: SxProps = {
-  borderRadius: 4,
-  bgcolor: "background.paper",
-  overflow: "hidden",
-  boxShadow: "0px 3px 4px 0px rgba(0, 0, 0, 0.03)",
-};
-
-const dataBodySx: SxProps = {
-  bgcolor: "background.paper",
-  p: 3,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-};
-
-const iconBoxSx: SxProps = {
-  bgcolor: "primary.100",
-  p: 2,
-  borderRadius: 3,
-  color: "primary.main",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-};
-
-const dataFooterSx: SxProps = {
-  bgcolor: "grey.500",
-  px: 3,
-  py: 2,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  div: {
-    display: "flex",
-    alignItems: "center",
-  },
-};
-
-const linkSx: SxProps = {
-  color: "text.primary",
-  textTransform: "none",
-  fontSize: 14,
-  bgcolor: "transparent",
-};
+import { dataCardSx } from "@/modules/dashboard/components/data-card/styles";
 
 type DataCardProps = {
   icon: ReactNode;
@@ -66,9 +22,9 @@ const DataCard = ({
   const isSuccess = status === "success";
 
   return (
-    <Box sx={dataCardSx}>
-      <Box sx={dataBodySx}>
-        <Box sx={iconBoxSx}>{icon}</Box>
+    <Box sx={dataCardSx.container}>
+      <Box sx={dataCardSx.body}>
+        <Box sx={dataCardSx.iconBox}>{icon}</Box>
         <Box>
           <Typography variant="body1" color="text.disabled" fontSize={14}>
             {label}
@@ -78,7 +34,7 @@ const DataCard = ({
           </Typography>
         </Box>
       </Box>
-      <Box sx={dataFooterSx}>
+      <Box sx={dataCardSx.footer}>
         <Box>
           <Box mr={1}>
             {isSuccess ? (
@@ -94,7 +50,7 @@ const DataCard = ({
             Last week
           </Typography>
         </Box>
-        <Button sx={linkSx}>View more</Button>
+        <Button sx={dataCardSx.link}>View more</Button>
       </Box>
     </Box>
   );

@@ -1,4 +1,4 @@
-import { THEME_MODE_STORAGE } from "@/constants/themeStorage";
+import { THEME_MODE_STORAGE } from "@/constants/theme-storage";
 import { PaletteMode } from "@mui/material";
 
 export const getThemeMode = (): PaletteMode => {

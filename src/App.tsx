@@ -1,5 +1,5 @@
-import AppRoutes from "@/routes/AppRoutes";
-import { ThemeContextProvider } from "@/contexts/ThemeContext";
+import AppRoutes from "@/routes/app-routes";
+import { ThemeContextProvider } from "@/contexts/theme-context";
 import { Provider } from "react-redux";
 import store from "@/redux/store";
 

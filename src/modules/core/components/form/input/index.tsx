@@ -1,4 +1,5 @@
-import { SxProps, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
+import { inputSx } from "@/modules/core/components/form/input/styles";
 
 type InputProps = {
   error?: boolean;
@@ -14,13 +15,6 @@ const Input = ({
   autoFocus,
   ...props
 }: InputProps) => {
-  const inputSx: SxProps = {
-    ".MuiOutlinedInput-root": {
-      borderRadius: 3,
-    },
-    label: { color: "text.primary" },
-  };
-
   return (
     <TextField
       {...props}
@@ -29,7 +23,7 @@ const Input = ({
       helperText={errorMessage}
       size="small"
       autoFocus={autoFocus}
-      sx={inputSx}
+      sx={inputSx.input}
     />
   );
 };

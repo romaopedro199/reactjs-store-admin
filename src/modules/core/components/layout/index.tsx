@@ -1,7 +1,7 @@
 import { Box, Stack } from "@mui/material";
 import { ReactNode, useState } from "react";
-import AppSidebar from "@/modules/core/components/layout/AppSidebar";
-import AppHeader from "@/modules/core/components/layout/AppHeader";
+import AppSidebar from "@/modules/core/components/layout/app-sidebar";
+import AppHeader from "@/modules/core/components/layout/app-header";
 
 type AppLayoutProps = {
   children: ReactNode;

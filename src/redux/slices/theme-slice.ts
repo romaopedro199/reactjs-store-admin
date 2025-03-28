@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PaletteMode } from "@mui/material";
-import { getThemeMode } from "@/utils/getThemeMode";
-import { THEME_MODE_STORAGE } from "@/constants/themeStorage";
+import { getThemeMode } from "@/utils/theme-mode";
+import { THEME_MODE_STORAGE } from "@/constants/theme-storage";
 
 interface ThemeState {
   themeMode: PaletteMode;

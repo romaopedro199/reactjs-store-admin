@@ -1,4 +1,5 @@
-import { Box, SxProps } from "@mui/material";
+import { Box } from "@mui/material";
+import { logoSx } from "@/modules/core/components/logo/styles";
 
 type LogoProps = {
   width?: number;
@@ -13,14 +14,14 @@ const Logo = ({
   variant = "dark",
   compact,
 }: LogoProps) => {
-  const sx: SxProps = {
-    overflow: "hidden",
-    width: compact ? 50 : "auto",
-    img: { width, height },
-  };
+  const componentSx = logoSx({
+    containerWidth: compact ? 50 : "auto",
+    width,
+    height,
+  });
 
   return (
-    <Box sx={sx}>
+    <Box sx={componentSx.container}>
       <img src={`src/assets/svg/logo-${variant}.svg`} />
     </Box>
   );

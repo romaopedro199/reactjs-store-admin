@@ -1,4 +1,4 @@
-import AppLayout from "@/modules/core/components/layout/AppLayout";
+import AppLayout from "@/modules/core/components/layout";
 import { Navigate, Outlet } from "react-router-dom";
 // import { useSelector } from "react-redux";
 // import { RootState } from "../redux/store";

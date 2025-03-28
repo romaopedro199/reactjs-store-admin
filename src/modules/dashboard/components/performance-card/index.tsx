@@ -1,5 +1,5 @@
-import ButtonHover from "@/modules/core/components/ButtonHover";
-import { Box, SxProps, Typography } from "@mui/material";
+import ButtonHover from "@/modules/core/components/button-hover";
+import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import {
@@ -11,24 +11,13 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { performanceCardSx } from "@/modules/dashboard/components/performance-card/styles";
+import { ABBREVIATED_MONTHS } from "@/constants/months";
 
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const data = {
-  labels: [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ],
+  labels: ABBREVIATED_MONTHS,
   datasets: [
     {
       label: "Pave views",
@@ -89,8 +78,6 @@ const CustomBarChart = () => {
   );
 };
 
-const filterButtonSx: SxProps = { fontSize: 12, padding: 1, minWidth: 46 };
-
 interface FilterProps {
   filter: number;
   onFilter: (param: number) => void;
@@ -103,7 +90,7 @@ const Filters = ({ filter, onFilter }: FilterProps) => {
         variant="secondary"
         inverted={filter !== 0}
         onClick={() => onFilter(0)}
-        sx={filterButtonSx}
+        sx={performanceCardSx.filterButton}
       >
         All
       </ButtonHover>
@@ -111,7 +98,7 @@ const Filters = ({ filter, onFilter }: FilterProps) => {
         variant="secondary"
         inverted={filter !== 1}
         onClick={() => onFilter(1)}
-        sx={filterButtonSx}
+        sx={performanceCardSx.filterButton}
       >
         1M
       </ButtonHover>
@@ -119,7 +106,7 @@ const Filters = ({ filter, onFilter }: FilterProps) => {
         variant="secondary"
         inverted={filter !== 6}
         onClick={() => onFilter(6)}
-        sx={filterButtonSx}
+        sx={performanceCardSx.filterButton}
       >
         6M
       </ButtonHover>
@@ -127,20 +114,12 @@ const Filters = ({ filter, onFilter }: FilterProps) => {
         variant="secondary"
         inverted={filter !== 12}
         onClick={() => onFilter(12)}
-        sx={filterButtonSx}
+        sx={performanceCardSx.filterButton}
       >
         1Y
       </ButtonHover>
     </Box>
   );
-};
-
-const performanceCardSx: SxProps = {
-  borderRadius: 4,
-  bgcolor: "background.paper",
-  py: 3,
-  px: 4,
-  boxShadow: "0px 3px 4px 0px rgba(0, 0, 0, 0.03)",
 };
 
 const PerformanceCard = () => {
@@ -151,7 +130,7 @@ const PerformanceCard = () => {
   };
 
   return (
-    <Box sx={performanceCardSx}>
+    <Box sx={performanceCardSx.container}>
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Typography variant="h6" color="text.primary" fontSize={16}>
           Performance

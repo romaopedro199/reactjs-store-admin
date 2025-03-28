@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "@/redux/store";
-import { toggleThemeMode } from "@/redux/slices/themeSlice";
+import { toggleThemeMode } from "@/redux/slices/theme-slice";
 
 export const useTheme = () => {
   const themeMode = useSelector((state: RootState) => state.theme.themeMode);

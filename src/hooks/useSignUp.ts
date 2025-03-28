@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { signUpSchema } from "@/schemas/signUpSchema";
-import { SignUpCredentials } from "@/types/Auth.types";
+import { signUpSchema } from "@/schemas/sign-up-schema";
+import { SignUpCredentials } from "@/types/auth.types";
 
 type SignUpFormInputs = z.infer<typeof signUpSchema>;
 

@@ -1,9 +1,9 @@
-import AuthLayout from "@/modules/auth/common/AuthLayout";
+import AuthLayout from "@/modules/auth/common/auth-layout";
 import { Controller } from "react-hook-form";
 import { Box, InputLabel, Stack, Typography } from "@mui/material";
 import useSignUp from "@/hooks/useSignUp";
-import ButtonHover from "@/modules/core/components/ButtonHover";
-import Input from "@/modules/core/components/form/Input";
+import ButtonHover from "@/modules/core/components/button-hover";
+import Input from "@/modules/core/components/form/input";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
