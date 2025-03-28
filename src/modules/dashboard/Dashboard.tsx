@@ -4,11 +4,12 @@ import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import DataCard from "@/modules/dashboard/components/DataCard";
+import PerformanceCard from "@/modules/dashboard/components/PerformanceCard";
 
 const DataCardContainer = () => {
   return (
     <Grid2 container spacing={3}>
-      <Grid2 size={{ xs: 12, md: 6 }}>
+      <Grid2 size={{ xs: 12, sm: 6 }}>
         <DataCard
           icon={<ShoppingBasketIcon />}
           label="Total Orders"
@@ -17,7 +18,7 @@ const DataCardContainer = () => {
           status="success"
         />
       </Grid2>
-      <Grid2 size={{ xs: 12, md: 6 }}>
+      <Grid2 size={{ xs: 12, sm: 6 }}>
         <DataCard
           icon={<WorkspacePremiumIcon />}
           label="New Leads"
@@ -26,7 +27,7 @@ const DataCardContainer = () => {
           status="success"
         />
       </Grid2>
-      <Grid2 size={{ xs: 12, md: 6 }}>
+      <Grid2 size={{ xs: 12, sm: 6 }}>
         <DataCard
           icon={<BusinessCenterIcon />}
           label="Deals"
@@ -35,7 +36,7 @@ const DataCardContainer = () => {
           status="error"
         />
       </Grid2>
-      <Grid2 size={{ xs: 12, md: 6 }}>
+      <Grid2 size={{ xs: 12, sm: 6 }}>
         <DataCard
           icon={<MonetizationOnIcon />}
           label="Revenue"
@@ -55,7 +56,9 @@ const Dashboard = () => {
         <Grid2 size={{ xs: 12, lg: 6 }}>
           <DataCardContainer />
         </Grid2>
-        <Grid2 size={{ xs: 12, lg: 6 }}>123</Grid2>
+        <Grid2 size={{ xs: 12, lg: 6 }}>
+          <PerformanceCard />
+        </Grid2>
       </Grid2>
     </Stack>
   );

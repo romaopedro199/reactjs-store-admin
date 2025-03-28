@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 
 type ButtonHoverProps = {
   variant?: "primary" | "secondary";
+  inverted?: boolean;
   type?: "submit" | "button";
   onClick?: () => void;
   children: ReactNode;
@@ -11,6 +12,7 @@ type ButtonHoverProps = {
 
 const ButtonHover = ({
   variant = "primary",
+  inverted,
   type = "button",
   onClick,
   children,
@@ -19,8 +21,18 @@ const ButtonHover = ({
   const isSecondary = variant !== "primary";
 
   const buttonSx: SxProps = {
-    bgcolor: !isSecondary ? "primary.100" : "secondary.100",
-    color: !isSecondary ? "primary.main" : "secondary.main",
+    bgcolor: inverted
+      ? "transparent"
+      : !isSecondary
+      ? "primary.100"
+      : "secondary.100",
+    color: !isSecondary
+      ? "primary.main"
+      : !inverted
+      ? "secondary.main"
+      : "text.primary",
+    border: inverted ? "1px solid" : "0",
+    borderColor: !isSecondary ? "primary.100" : "secondary.100",
     textTransform: "inherit",
     fontWeight: "400",
     fontSize: 14,
