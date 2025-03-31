@@ -1,5 +1,5 @@
 import ButtonHover from "@/modules/core/components/button-hover";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import {
@@ -13,67 +13,40 @@ import {
 } from "chart.js";
 import { performanceCardSx } from "@/modules/dashboard/components/performance-card/styles";
 import { ABBREVIATED_MONTHS } from "@/constants/months";
+import { performanceChartOptions } from "./utils";
 
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const data = {
-  labels: ABBREVIATED_MONTHS,
-  datasets: [
-    {
-      label: "Pave views",
-      data: [
-        2400, 1398, 9800, 3908, 4800, 3800, 2400, 1398, 9800, 3908, 4800, 3800,
-      ],
-      backgroundColor: "#ff6f00",
-      borderRadius: 8,
-    },
-    {
-      label: "Clicks",
-      data: [
-        4000, 3000, 2000, 2780, 1890, 2390, 4000, 3000, 2000, 2780, 1890, 2390,
-      ],
-      backgroundColor: "#0288d1",
-      borderRadius: 8,
-    },
-  ],
-};
-
-const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: true,
-      position: "bottom" as const,
-      labels: {
-        padding: 10,
-        usePointStyle: true,
-        pointStyle: "circle",
-        boxWidth: 5,
-        boxHeight: 5,
-      },
-    },
-    tooltip: {
-      enabled: false,
-    },
-  },
-  scales: {
-    x: {
-      grid: {
-        display: false,
-      },
-    },
-    y: {
-      grid: {
-        display: false,
-      },
-    },
-  },
-};
-
 const CustomBarChart = () => {
+  const theme = useTheme();
+
+  const data = {
+    labels: ABBREVIATED_MONTHS,
+    datasets: [
+      {
+        label: "Page views",
+        data: [
+          2400, 1398, 9800, 3908, 4800, 3800, 2400, 1398, 9800, 3908, 4800,
+          3800,
+        ],
+        backgroundColor: theme.palette.primary.main,
+        borderRadius: 8,
+      },
+      {
+        label: "Clicks",
+        data: [
+          4000, 3000, 2000, 2780, 1890, 2390, 4000, 3000, 2000, 2780, 1890,
+          2390,
+        ],
+        backgroundColor: theme.palette.success.main,
+        borderRadius: 8,
+      },
+    ],
+  };
+
   return (
     <Box pt={5} maxHeight={250} display="flex" justifyContent="center">
-      <Bar data={data} options={options} />
+      <Bar data={data} options={performanceChartOptions} />
     </Box>
   );
 };
