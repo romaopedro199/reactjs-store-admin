@@ -13,7 +13,7 @@ import {
 } from "chart.js";
 import { performanceCardSx } from "@/modules/dashboard/components/performance-card/styles";
 import { ABBREVIATED_MONTHS } from "@/constants/months";
-import { performanceChartOptions } from "./utils";
+import { performanceChartOptions } from "@/modules/dashboard/components/performance-card/utils";
 
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
