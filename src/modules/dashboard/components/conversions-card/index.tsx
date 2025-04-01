@@ -3,6 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { conversionsCardSx } from "@/modules/dashboard/components/conversions-card/styles";
 import { conversionsChartOptions } from "@/modules/dashboard/components/conversions-card/utils";
+import ButtonHover from "@/modules/core/components/button-hover";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -31,10 +32,10 @@ const CustomDoughnutChart = () => {
       },
     ],
   };
+
   return (
     <Box
       pt={3}
-      maxHeight={250}
       display="flex"
       justifyContent="center"
       sx={{ pointerEvents: "none" }}
@@ -54,6 +55,35 @@ const ConversionsCard = () => {
       </Box>
       <Box>
         <CustomDoughnutChart />
+        <Box textAlign="center" mt={-2.5}>
+          <Typography color="text.primary" fontSize={20} fontWeight="700">
+            80%
+          </Typography>
+          <Typography color="text.primary" fontSize={14}>
+            Returning customer
+          </Typography>
+        </Box>
+        <Box display="flex" justifyContent="space-between" py={3} px={8}>
+          <Box textAlign="center">
+            <Typography color="text.primary" fontSize={14}>
+              This week
+            </Typography>
+            <Typography color="text.primary" fontSize={24} fontWeight="700">
+              23.5k
+            </Typography>
+          </Box>
+          <Box textAlign="center">
+            <Typography color="text.primary" fontSize={14}>
+              Last week
+            </Typography>
+            <Typography color="text.primary" fontSize={24} fontWeight="700">
+              41.3k
+            </Typography>
+          </Box>
+        </Box>
+        <ButtonHover variant="secondary" fullWidth>
+          View Details
+        </ButtonHover>
       </Box>
     </Box>
   );
