@@ -65,7 +65,7 @@ const ConversionsCard = () => {
         </Box>
         <Box display="flex" justifyContent="space-between" py={3} px={8}>
           <Box textAlign="center">
-            <Typography color="text.primary" fontSize={14}>
+            <Typography color="text.disabled" fontSize={14}>
               This week
             </Typography>
             <Typography color="text.primary" fontSize={24} fontWeight="700">
@@ -73,7 +73,7 @@ const ConversionsCard = () => {
             </Typography>
           </Box>
           <Box textAlign="center">
-            <Typography color="text.primary" fontSize={14}>
+            <Typography color="text.disabled" fontSize={14}>
               Last week
             </Typography>
             <Typography color="text.primary" fontSize={24} fontWeight="700">

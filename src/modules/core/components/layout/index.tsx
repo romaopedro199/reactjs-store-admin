@@ -20,7 +20,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       width="100%"
     >
       <AppSidebar open={openSidebar} onToggle={handleToggleSidebar} />
-      <Box width="100%" px={{ xs: 2, lg: 5 }}>
+      <Box width="100%" px={{ xs: 2, lg: 5 }} pb={{ xs: 2, lg: 5 }}>
         <AppHeader onToggle={handleToggleSidebar} />
 
         <Box>{children}</Box>

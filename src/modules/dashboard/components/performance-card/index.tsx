@@ -19,6 +19,7 @@ Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const CustomBarChart = () => {
   const theme = useTheme();
+  const options = performanceChartOptions(theme);
 
   const data = {
     labels: ABBREVIATED_MONTHS,
@@ -30,7 +31,7 @@ const CustomBarChart = () => {
           3800,
         ],
         backgroundColor: theme.palette.primary.main,
-        borderRadius: 8,
+        borderRadius: 4,
       },
       {
         label: "Clicks",
@@ -39,14 +40,14 @@ const CustomBarChart = () => {
           2390,
         ],
         backgroundColor: theme.palette.success.main,
-        borderRadius: 8,
+        borderRadius: 4,
       },
     ],
   };
 
   return (
     <Box pt={5} maxHeight={250} display="flex" justifyContent="center">
-      <Bar data={data} options={performanceChartOptions} />
+      <Bar data={data} options={options} />
     </Box>
   );
 };
