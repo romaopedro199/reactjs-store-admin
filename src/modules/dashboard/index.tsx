@@ -6,6 +6,7 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import DataCard from "@/modules/dashboard/components/data-card";
 import PerformanceCard from "@/modules/dashboard/components/performance-card";
 import ConversionsCard from "@/modules/dashboard/components/conversions-card";
+import SessionsCard from "@/modules/dashboard/components/sessions-card";
 
 const DataCardContainer = () => {
   return (
@@ -62,6 +63,9 @@ const Dashboard = () => {
         </Grid2>
         <Grid2 size={{ xs: 12, lg: 4 }}>
           <ConversionsCard />
+        </Grid2>
+        <Grid2 size={{ xs: 12, lg: 4 }}>
+          <SessionsCard />
         </Grid2>
       </Grid2>
     </Stack>

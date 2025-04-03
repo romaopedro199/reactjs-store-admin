@@ -38,6 +38,7 @@ const CustomDoughnutChart = () => {
       pt={3}
       display="flex"
       justifyContent="center"
+      height={165}
       sx={{ pointerEvents: "none" }}
     >
       <Doughnut data={data} options={conversionsChartOptions} />
