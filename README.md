@@ -1,54 +1,80 @@
-# React + TypeScript + Vite
+# reactjs-store-admin (work in progress)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um painel de administração construído com React.js para gerenciar uma loja online. Ele oferece funcionalidades para adicionar, editar e remover produtos, além de visualizar e gerenciar pedidos e clientes.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Gerenciamento de Produtos:**
+  - Adicionar novos produtos com detalhes como nome, descrição, preço e imagens.
+  - Editar informações de produtos existentes.
+  - Remover produtos do catálogo.
+- **Gerenciamento de Pedidos:**
+  - Visualizar lista de pedidos com detalhes como cliente, produtos, status e valor total.
+  - Atualizar o status dos pedidos (por exemplo, "pendente", "enviado", "entregue").
+- **Gerenciamento de Clientes:**
+  - Visualizar lista de clientes com informações como nome, e-mail e histórico de pedidos.
+  - Adicionar novos clientes.
+  - Editar informações de clientes existentes.
+  - Remover clientes.
+- **Painel de Controle:**
+  - Visão geral das principais métricas da loja, como número de pedidos, vendas totais e novos clientes.
+- **Autenticação:**
+  - Sistema de login para acesso seguro ao painel de administração.
+  - Gerenciamento de usuários com diferentes níveis de permissão.
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React.js:** Biblioteca JavaScript para construção de interfaces de usuário.
+- **React Router:** Para navegação entre as diferentes páginas do painel de administração.
+- **Axios:** Para requisições HTTP à API da loja.
+- **Material-UI:** Biblioteca de componentes React para criação de interfaces modernas e responsivas.
+- **Redux:** Para gerenciamento de estado da aplicação (a escolher).
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Pré-requisitos
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Node.js e npm ou yarn instalados.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Instalação
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1.  Clone o repositório:
+
+    \`\`\`bash
+    git clone https://github.com/romaopedro199/reactjs-store-admin.git
+    \`\`\`
+
+2.  Navegue até o diretório do projeto:
+
+    \`\`\`bash
+    cd reactjs-store-admin
+    \`\`\`
+
+3.  Instale as dependências:
+
+    \`\`\`bash
+    npm install ou yarn install
+    \`\`\`
+
+4.  Configure as variáveis de ambiente (se necessário):
+
+    - Crie um arquivo `.env` na raiz do projeto.
+    - Adicione as variáveis de ambiente necessárias, como a URL da API backend.
+
+5.  Inicie o servidor de desenvolvimento:
+
+    \`\`\`bash
+    npm run dev ou yarn dev
+    \`\`\`
+
+6.  Acesse o painel de administração no seu navegador:
+
+    \`\`\`
+    http://localhost:5173/
+    \`\`\`
+
+## Contribuição
+
+Contribuições são bem-vindas! Se você encontrar algum bug ou tiver alguma sugestão de melhoria, por favor, abra uma issue ou envie um pull request.
+
+## Licença
+
+Este projeto está sob a licença [MIT](LICENSE).
