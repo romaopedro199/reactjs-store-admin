@@ -1,6 +1,6 @@
 import { SxProps } from "@mui/material";
 
-export const conversionsCardSx: Record<string, SxProps> = {
+export const topPagesCardSx: Record<string, SxProps> = {
   container: {
     borderRadius: 4,
     bgcolor: "background.paper",

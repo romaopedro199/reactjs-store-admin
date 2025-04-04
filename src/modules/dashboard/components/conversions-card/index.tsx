@@ -64,7 +64,12 @@ const ConversionsCard = () => {
             Returning customer
           </Typography>
         </Box>
-        <Box display="flex" justifyContent="space-between" py={3} px={8}>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          py={3}
+          px={{ xs: 8, sm: 6, lg: 8 }}
+        >
           <Box textAlign="center">
             <Typography color="text.disabled" fontSize={14}>
               This week

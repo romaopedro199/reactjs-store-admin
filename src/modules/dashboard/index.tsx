@@ -7,6 +7,7 @@ import DataCard from "@/modules/dashboard/components/data-card";
 import PerformanceCard from "@/modules/dashboard/components/performance-card";
 import ConversionsCard from "@/modules/dashboard/components/conversions-card";
 import SessionsCard from "@/modules/dashboard/components/sessions-card";
+import TopPagesCard from "@/modules/dashboard/components/top-pages-card";
 
 const DataCardContainer = () => {
   return (
@@ -61,11 +62,14 @@ const Dashboard = () => {
         <Grid2 size={{ xs: 12, lg: 6 }}>
           <PerformanceCard />
         </Grid2>
-        <Grid2 size={{ xs: 12, lg: 4 }}>
+        <Grid2 size={{ xs: 12, sm: 6, lg: 4 }}>
           <ConversionsCard />
         </Grid2>
-        <Grid2 size={{ xs: 12, lg: 4 }}>
+        <Grid2 size={{ xs: 12, sm: 6, lg: 4 }}>
           <SessionsCard />
+        </Grid2>
+        <Grid2 size={{ xs: 12, sm: 6, lg: 4 }}>
+          <TopPagesCard />
         </Grid2>
       </Grid2>
     </Stack>
