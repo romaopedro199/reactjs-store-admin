@@ -38,21 +38,21 @@ Este projeto é um painel de administração construído com React.js para geren
 
 1.  Clone o repositório:
 
-    \`\`\`bash
+    ```bash
     git clone https://github.com/romaopedro199/reactjs-store-admin.git
-    \`\`\`
+    ```
 
 2.  Navegue até o diretório do projeto:
 
-    \`\`\`bash
+    ```bash
     cd reactjs-store-admin
-    \`\`\`
+    ```
 
 3.  Instale as dependências:
 
-    \`\`\`bash
+    ```bash
     npm install ou yarn install
-    \`\`\`
+    ```
 
 4.  Configure as variáveis de ambiente (se necessário):
 
@@ -61,15 +61,15 @@ Este projeto é um painel de administração construído com React.js para geren
 
 5.  Inicie o servidor de desenvolvimento:
 
-    \`\`\`bash
+    ```bash
     npm run dev ou yarn dev
-    \`\`\`
+    ```
 
 6.  Acesse o painel de administração no seu navegador:
 
-    \`\`\`
+    ```
     http://localhost:5173/
-    \`\`\`
+    ```
 
 ## Contribuição
 
